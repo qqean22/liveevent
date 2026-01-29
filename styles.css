@@ -57,24 +57,19 @@ body {
 .site-header-inner {
   max-width: 1320px;
   margin: 0 auto;
-  height: 40px;
-}
-
-.site-header {
-  max-width: 1320px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .site-header .brand {
   display: block;
   width: 100%;
-  height: 100%;
 }
 
 .brand-logo {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   object-position: left center;
 }
@@ -314,6 +309,11 @@ body {
   }
 
   .brand-logo {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 40px;
+    margin: 0 auto;
     object-position: center center;
   }
 
@@ -323,16 +323,6 @@ body {
 
   .gallery-inner {
     padding: 0.4rem 0 1.6rem;
-  }
-
-  .site-header-inner {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .header-right {
-    flex-direction: column;
-    align-items: flex-end;
   }
 
   .footer-inner {
