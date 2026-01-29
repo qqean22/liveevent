@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Photo Gallery</title>
-    <!-- Pic-Time style justified gallery using jQuery Justified Gallery -->
+    <title>AXI STUDIO</title>
+   
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"
@@ -14,21 +14,38 @@
   <body>
     <div class="site">
       <header class="site-header">
-        <div class="brand">
-          <span class="brand-mark"></span>
-          <span class="brand-name">Portfolio</span>
+        <div class="site-header-inner">
+          <div class="brand">
+            <span class="brand-mark"></span>
+            <div class="brand-text">
+              <span class="brand-name">Your Studio Name</span>
+              <span class="brand-tagline">Photography Studio</span>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="header-links">
+              <a href="#gallery" class="header-link">Gallery</a>
+            </div>
+          </div>
         </div>
       </header>
 
       <main class="site-main">
         <section class="hero">
           <div class="hero-content">
-            <p class="eyebrow">Selected Works</p>
-            <h1 class="hero-title">Timeless imagery in a modern layout.</h1>
-            <p class="hero-subtitle">
-              A responsive, justified gallery designed for large-format photography. Resize your
-              browser to see the layout adapt.
-            </p>
+            <p class="eyebrow">Your Studio Name</p>
+            <h1 class="hero-title">Photography for modern celebrations.</h1>
+            <div class="hero-links">
+              <a href="https://www.yourstudio.com" target="_blank" rel="noreferrer" class="hero-link">
+                Website
+              </a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" class="hero-link">
+                Instagram
+              </a>
+              <a href="mailto:hello@example.com" class="hero-link">
+                Email
+              </a>
+            </div>
           </div>
         </section>
 
@@ -40,7 +57,23 @@
       </main>
 
       <footer class="site-footer">
-        <span>&copy; <span id="year"></span> Your Studio Name</span>
+        <div class="footer-inner">
+          <div class="footer-main">
+            <span class="footer-brand">&copy; <span id="year"></span> Your Studio Name</span>
+            <span class="footer-copy">Luxury weddings, events &amp; portrait photography.</span>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" class="social-link">
+              Instagram
+            </a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" class="social-link">
+              TikTok
+            </a>
+            <a href="mailto:hello@example.com" class="social-link">
+              Email
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
