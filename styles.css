@@ -1,0 +1,290 @@
+:root {
+  --page-bg: #f5f5f5;
+  --page-surface: #ffffff;
+  --accent: #111827;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --border-subtle: rgba(15, 23, 42, 0.06);
+  --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.06);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+    "Segoe UI", sans-serif;
+  background: var(--page-bg);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(18px);
+}
+
+.site-header,
+.site-footer {
+  padding: 0.9rem clamp(1.25rem, 3vw, 3rem);
+}
+
+.site-main {
+  padding: 1.5rem clamp(1.25rem, 3vw, 3rem) 2.5rem;
+  flex: 1;
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-header-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.brand-mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 20% 20%, #4b5563 0, #111827 40%, #000 100%);
+}
+
+.brand-name {
+  font-weight: 550;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-bottom: 0.3rem;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transition: width 180ms ease-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.hero {
+  max-width: 1320px;
+  margin: 1.6rem auto 1.8rem;
+}
+
+.hero-content {
+  max-width: 720px;
+  padding: 0.8rem 0 0.5rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+.hero-title {
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.95rem, 3vw, 2.7rem);
+  line-height: 1.08;
+}
+
+.hero-subtitle {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.gallery-section {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.gallery-inner {
+  border-radius: 0;
+  padding: 0.4rem 0 2.5rem;
+}
+
+.justified-gallery {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Let the plugin fully control rows and items; no custom .jg-* overrides */
+
+/* Lightbox / slideshow */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease-out;
+  z-index: 50;
+}
+
+.lightbox-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 96vw;
+  max-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image-wrapper {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  border: none;
+  background: none;
+  color: #f9fafb;
+  cursor: pointer;
+  font-size: 1.9rem;
+  padding: 0.25rem 0.75rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-prev {
+  left: 1.5rem;
+}
+
+.lightbox-next {
+  right: 1.5rem;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  font-size: 2.4rem;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  color: #e5e7eb;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  background: var(--page-surface);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header,
+  .site-main,
+  .site-footer {
+    padding-inline: 1.1rem;
+  }
+
+  .nav {
+    gap: 0.35rem;
+  }
+
+  .hero {
+    margin-bottom: 1.5rem;
+  }
+
+  .gallery-inner {
+    padding: 0.4rem 0 1.6rem;
+  }
+
+  .jg-row {
+    --jg-gap: 0px;
+  }
+}
+

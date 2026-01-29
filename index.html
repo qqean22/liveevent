@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Photo Gallery</title>
+    <!-- Pic-Time style justified gallery using jQuery Justified Gallery -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site">
+      <header class="site-header">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span class="brand-name">Portfolio</span>
+        </div>
+      </header>
+
+      <main class="site-main">
+        <section class="hero">
+          <div class="hero-content">
+            <p class="eyebrow">Selected Works</p>
+            <h1 class="hero-title">Timeless imagery in a modern layout.</h1>
+            <p class="hero-subtitle">
+              A responsive, justified gallery designed for large-format photography. Resize your
+              browser to see the layout adapt.
+            </p>
+          </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+          <div class="gallery-inner">
+            <div id="gallery-root" class="justified-gallery" aria-label="Photo gallery"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>&copy; <span id="year"></span> Your Studio Name</span>
+      </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+    <script src="gallery.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Automatically fetch all image filenames from the /images folder
+      // via the backend endpoint and initialize the justified gallery.
+      window.addEventListener("DOMContentLoaded", () => {
+        fetch("/api/images")
+          .then((res) => res.json())
+          .then((paths) => {
+            if (window.initJustifiedGallery && Array.isArray(paths)) {
+              window.initJustifiedGallery("gallery-root", paths);
+            }
+          })
+          .catch((err) => {
+            console.error("Failed to load image list", err);
+          });
+      });
+    </script>
+  </body>
+</html>
+
