@@ -59,11 +59,26 @@ body {
   margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.site-header {
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
 .site-header .brand {
-  display: block;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 20% 20%, #4b5563 0, #111827 40%, #000 100%);
 }
 
 .brand-logo {
